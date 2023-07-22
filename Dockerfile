@@ -81,8 +81,8 @@ RUN \
   apt-get update && \
   apt-get install --no-install-recommends -y postgresql-client=11+200+deb10u4 && \
   rm -f /etc/apt/sources.list.d/pgdg.list && \
-  rm -rf /var/lib/apt/lists/* && \
-  echo "**** Install rtlcss (on Debian buster) ****" && \
+  rm -rf /var/lib/apt/lists/* 
+RUN echo "**** Install rtlcss (on Debian buster) ****" && \
   npm config set strict-ssl false && \
   npm install -g rtlcss
 
