@@ -87,8 +87,8 @@ RUN echo "**** Install rtlcss (on Debian buster) ****" && \
   npm install -g rtlcss
 
 # Install Odoo
-ARG VERSION
-ARG RELEASE
+ARG VERSION=16
+ARG RELEASE=latest
 ARG CHECKSUM
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 RUN \
