@@ -93,7 +93,7 @@ ARG CHECKSUM
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 RUN \
   echo "**** install odoo ****" && \
-  curl -o odoo.deb -sSL http://nightly.odoo.com/${VERSION}/nightly/deb/odoo_${VERSION}.${RELEASE}_all.deb && \
+  curl -o odoo.deb -sSL http://nightly.odoo.com/16/nightly/deb/odoo_16.0.latest_all.deb && \
   echo "${CHECKSUM}  odoo.deb" | sha256sum -c && \
   apt-get update && \
   apt-get -y install --no-install-recommends ./odoo.deb && \
