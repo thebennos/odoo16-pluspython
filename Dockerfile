@@ -79,7 +79,7 @@ RUN \
   gpgconf --kill all && \
   rm -rf "$GNUPGHOME" && \
   apt-get update && \
-  apt-get install --no-install-recommends -y postgresql-client=11+200+deb10u4 && \
+  apt-get install --no-install-recommends -y postgresql-client && \
   rm -f /etc/apt/sources.list.d/pgdg.list && \
   rm -rf /var/lib/apt/lists/* 
 RUN echo "**** Install rtlcss (on Debian buster) ****" && \
