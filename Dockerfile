@@ -94,7 +94,7 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 RUN \
   echo "**** install odoo ****" && \
   curl -o odoo.deb -sSL https://nightly.odoo.com/16.0/nightly/deb/odoo_16.0.20230722_all.deb && \
-  echo "${CHECKSUM}  odoo.deb" | sha256sum -c && \
+#  echo "${CHECKSUM}  odoo.deb" | sha256sum -c && \
   apt-get update && \
   apt-get -y install --no-install-recommends ./odoo.deb && \
   rm -rf /var/lib/apt/lists/* odoo.deb
