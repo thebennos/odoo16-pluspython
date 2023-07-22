@@ -12,7 +12,7 @@ RUN \
   echo "**** install packages ****" && \
   apt-get update && \
   apt-get install -y --no-install-recommends \
-    ca-certificates=20200601~deb10u2 \
+    ca-certificates \
     curl \
     dirmngr \
     fontconfig \
@@ -23,11 +23,11 @@ RUN \
     libxext6 \
     libxrender1 \
     node-less \
-    npm=5.8.0+ds6-4+deb10u \
+    npm \
     python3-num2words \
     python3-pdfminer \
     python3-pip \
-    python3-phonenumbers=8.9.10-1 \
+    python3-phonenumbers \
     python3-pyldap \
     python3-qrcode \
     python3-renderpm \
