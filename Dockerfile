@@ -38,7 +38,7 @@ RUN \
     python3-xlrd \
     python3-xlwt \
     python3-numpy \
-    python3-boto3 
+    python3-boto3 \
     python3-dropbox \
     python3-crontab \    
     python3-pandas \
