@@ -8,6 +8,7 @@ ENV LANG C.UTF-8
 # Install some deps, lessc and less-plugin-clean-css, and wkhtmltopdf
 COPY ./checksums.txt .
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+RUN install_packages acl ca-certificates curl fontconfig libbrotli1 libbsd0 libbz2-1.0 libc6 libcap2-bin libcom-err2 libcrypt1 libedit2 libffi7 libfreetype6 libgcc-s1 libgmp10 libgnutls30 libgssapi-krb5-2 libhogweed6 libicu67 libidn2-0 libjpeg62-turbo libk5crypto3 libkeyutils1 libkrb5-3 libkrb5support0 libldap-2.4-2 liblzma5 libmd0 libncursesw6 libnettle8 libnsl2 libp11-kit0 libpng16-16 libpq5 libreadline8 libsasl2-2 libsqlite3-0 libssl1.1 libstdc++6 libtasn1-6 libtinfo6 libtirpc3 libunistring2 libuuid1 libx11-6 libxcb1 libxext6 libxml2 libxrender1 libxslt1.1 procps xfonts-75dpi xfonts-base zlib1g
 RUN \
   echo "**** install packages ****" && \
   apt-get update && \
@@ -57,24 +58,9 @@ RUN \
   sha1sum ./wkhtmltox_0.12.6-1.buster_amd64.deb | sha1sum -c ./checksums.txt --ignore-missing || if [[ "$?" -eq "141" ]]; then true; else exit $?; fi && \
   mv ./wkhtmltox_0.12.6-1.buster_amd64.deb ./wkhtmltox.deb
 
-FROM base as base_arm64
-SHELL ["/bin/bash", "-o", "pipefail", "-c"]
-RUN \
-  echo "**** download wkhtmltox package ****" && \
-  wget -q https://github.com/wkhtmltopdf/packaging/releases/download/0.12.6-1/wkhtmltox_0.12.6-1.buster_arm64.deb && \
-  sha1sum ./wkhtmltox_0.12.6-1.buster_arm64.deb | sha1sum -c ./checksums.txt --ignore-missing || if [[ $? -eq 141 ]]; then true; else exit $?; fi && \
-  mv ./wkhtmltox_0.12.6-1.buster_arm64.deb ./wkhtmltox.deb
-
-FROM base as base_arm
-SHELL ["/bin/bash", "-o", "pipefail", "-c"]
-RUN \
-  echo "**** download wkhtmltox package ****" && \
-  wget -q https://github.com/wkhtmltopdf/packaging/releases/download/0.12.6-1/wkhtmltox_0.12.6-1.raspberrypi.buster_armhf.deb && \
-  sha1sum ./wkhtmltox_0.12.6-1.raspberrypi.buster_armhf.deb | sha1sum -c ./checksums.txt --ignore-missing || if [[ $? -eq 141 ]]; then true; else exit $?; fi && \
-  mv ./wkhtmltox_0.12.6-1.raspberrypi.buster_armhf.deb ./wkhtmltox.deb
 
 # hadolint ignore=DL3008
-FROM base_${TARGETARCH}
+FROM base_amd64
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 RUN \
   # Avoid the pesky 141 exit code
