@@ -15,6 +15,7 @@ RUN \
   apt-get install -y --no-install-recommends \
     acl \
     curl \
+    git \
     ca-certificates \
     curl \
     dirmngr \
