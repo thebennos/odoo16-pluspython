@@ -117,6 +117,13 @@ COPY ./odoo.conf /etc/odoo/
 COPY ./requirements.txt /
 COPY wait-for-psql.py /usr/local/bin/wait-for-psql.py
 
+RUN \
+  echo "**** install packages ****" && \
+  apt-get update && \
+  apt-get install -y --no-install-recommends \
+    gcc \
+    wget
+
 
 RUN adduser --system --group --home=/opt/odoo --shell=/bin/bash odoo 
 RUN su - odoo
