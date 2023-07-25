@@ -28,8 +28,10 @@ RUN \
     node-less \
     npm \
     python3-num2words \
+    python3-magic \
     python3-pdfminer \
     python3-pip \
+    python3-odf \
     python3-phonenumbers \
     python3-pyldap \
     python3-qrcode \
@@ -46,6 +48,10 @@ RUN \
     python3-crontab \    
     python3-pandas \
     wget \
+    libxrender1 \
+    libpq-dev \
+    libffi-dev \
+    libjpeg-dev \
     xfonts-75dpi \
     xfonts-base \
     xz-utils && \
