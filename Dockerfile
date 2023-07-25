@@ -63,7 +63,6 @@ RUN \
     python-opengl  \ 
     python-pil \ 
     python-pyrex \ 
-    python-pyside.qtopengl \ 
     idle-python2.7  \
     qt4-dev-tools  \
     qt4-designer  \
@@ -88,7 +87,6 @@ RUN \
     python-dateutil \
     python-docutils \ 
     python-feedparser \ 
-    python-gdata \
     python-jinja2 \
     python-ldap \
     python-libxslt1 \
@@ -98,7 +96,6 @@ RUN \
     python-openid \
     python-psycopg2 \
     python-psutil \
-    python-pybabel \
     python-pychart \
     python-pydot \
     python-pyparsing \
