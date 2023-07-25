@@ -119,8 +119,6 @@ COPY wait-for-psql.py /usr/local/bin/wait-for-psql.py
 
 RUN adduser --system --group --home=/opt/odoo --shell=/bin/bash odoo 
 RUN su - odoo
-WORKDIR /
-RUN mkdir /opt/odoo
 WORKDIR /opt/odoo
 RUN git clone https://github.com/odoo/odoo.git --depth 1 --branch 16.0 --single-branch odoo-server 
 RUN chown -R odoo:odoo /opt/odoo/odoo-server
