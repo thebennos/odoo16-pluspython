@@ -120,6 +120,8 @@ RUN \
   chmod a+x /entrypoint.sh && \
   chmod a+x /usr/local/bin/wait-for-psql.py
 VOLUME ["/var/lib/odoo", "/mnt/extra-addons"]
+RUN pip3 install wheel 
+RUN pip3 install -r Babel==2.9.1 
 
 # Expose Odoo services
 EXPOSE 8069 8071 8072
