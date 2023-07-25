@@ -132,6 +132,7 @@ RUN \
     gcc \
     libxslt1-dev \
     libldap2-dev \
+    python3-dev
     build-essential
 
 
