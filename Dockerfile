@@ -116,15 +116,6 @@ COPY ./requirements.txt /
 COPY wait-for-psql.py /usr/local/bin/wait-for-psql.py
 
 
-# Set permissions and Mount /var/lib/odoo to allow restoring filestore and /mnt/extra-addons for users addons
-RUN \
-  echo "**** Set permissions ****" && \
-  chown odoo /etc/odoo/odoo.conf && \
-  mkdir -p /mnt/extra-addons && \
-  chown -R odoo /mnt/extra-addons && \
-  chmod a+x /entrypoint.sh && \
-  chmod a+x /usr/local/bin/wait-for-psql.py
-VOLUME ["/var/lib/odoo", "/mnt/extra-addons"]
 RUN sudo adduser --system --group --home=/opt/odoo --shell=/bin/bash odoo 
 RUN su - odoo
 RUN sudo git clone https://github.com/odoo/odoo.git --depth 1 --branch 16.0 --single-branch odoo-server 
@@ -137,6 +128,16 @@ RUN pip3 install wheel
 RUN pip3 install -r requirements.txt
 RUN deactivate
 RUN exit
+
+# Set permissions and Mount /var/lib/odoo to allow restoring filestore and /mnt/extra-addons for users addons
+RUN \
+  echo "**** Set permissions ****" && \
+  chown odoo /etc/odoo/odoo.conf && \
+  mkdir -p /mnt/extra-addons && \
+  chown -R odoo /mnt/extra-addons && \
+  chmod a+x /entrypoint.sh && \
+  chmod a+x /usr/local/bin/wait-for-psql.py
+VOLUME ["/var/lib/odoo", "/mnt/extra-addons"]
 
 # Expose Odoo services
 EXPOSE 8069 8071 8072
