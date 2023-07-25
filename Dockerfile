@@ -126,9 +126,8 @@ RUN chown -R odoo:odoo /opt/odoo/odoo-server
 RUN cd /opt/odoo/odoo-server
 RUN python3 -m venv venv
 RUN source venv/bin/activate
-
 RUN pip3 install wheel 
-RUN pip3 install -r requirements.txt
+RUN pip3 install -r /opt/odoo/odoo-server/requirements.txt
 RUN deactivate
 RUN exit
 
