@@ -114,8 +114,8 @@ RUN \
     python-zsi \
     libxslt1-dev \
     libldap2-dev \
-    python3-dev
-    build-essential
+    python3-dev \
+    build-essential \
     xz-utils && \
  apt-get clean && \
  rm -rf /var/lib/apt/lists/*
