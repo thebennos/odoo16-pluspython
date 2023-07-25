@@ -41,6 +41,7 @@ RUN \
     python3-slugify \
     python3-vobject \
     python3-watchdog \
+    python3-venv \
     python3-xlrd \
     python3-xlwt \
     python3-numpy \
