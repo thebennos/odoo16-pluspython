@@ -197,8 +197,8 @@ RUN \
 RUN cd /opt/odoo/odoo-server
 RUN python3 -m venv venv
 RUN source venv/bin/activate
-RUN pip3 install wheel Cython==3.0.0a10
-RUN pip3 install -r /opt/odoo/odoo-server/requirements.txt
+RUN pip3 install wheel Cython==3.0.0a10 Babel==2.9.1 chardet==4.0.0 cryptography==3.4.8 decorator==4.4.2 docutils==0.16 ebaysdk==2.1.5 freezegun==0.3.15 gevent==21.8.0 greenlet==1.1.2 idna==2.10 Jinja2==2.11.3 libsass==0.20.1 lxml==4.6.5 MarkupSafe==1.1.1 num2words==0.5.9 
+# RUN pip3 install -r /opt/odoo/odoo-server/requirements.txt
 RUN deactivate
 RUN exit
 
