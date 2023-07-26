@@ -213,6 +213,11 @@ RUN \
   chown -R odoo /mnt/extra-addons && \
   chmod a+x /entrypoint.sh && \
   chmod a+x /usr/local/bin/wait-for-psql.py
+
+# /etc/systemd/system/odoo.service 
+WORKDIR /
+COPY ./odoo.service  /etc/systemd/system/odoo.service 
+
 VOLUME ["/var/lib/odoo", "/mnt/extra-addons"]
 
 # Expose Odoo services
@@ -225,4 +230,4 @@ ENV ODOO_RC /etc/odoo/odoo.conf
 USER odoo
 
 ENTRYPOINT ["/entrypoint.sh"]
-CMD ["odoo"]
+CMD ["systemctl enable --now odoo.service"]
