@@ -1,0 +1,15 @@
+[Unit]
+Description=Odoo Service
+
+ 
+[Service]
+Type=simple
+SyslogIdentifier=odoo
+PermissionsStartOnly=true
+User=odoo
+Group=odoo
+ExecStart=/opt/odoo/odoo-server/venv/bin/python3 /opt/odoo/odoo-server/odoo-bin -c /etc/odoo.conf
+StandardOutput=journal+console
+ 
+[Install]
+WantedBy=multi-user.target
