@@ -190,6 +190,7 @@ RUN \
     libxslt1-dev \
     libldap2-dev \
     python3-dev \
+    rustc \
     cython3
 
 
