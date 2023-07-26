@@ -230,4 +230,5 @@ ENV ODOO_RC /etc/odoo/odoo.conf
 USER odoo
 
 ENTRYPOINT ["/entrypoint.sh"]
-CMD ["systemctl enable --now odoo.service"]
+WORKDIR /opt/odoo/odoo-server/venv/bin/python3 
+CMD ["/opt/odoo/odoo-server/odoo-bin"]
