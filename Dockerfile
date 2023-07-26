@@ -202,7 +202,7 @@ RUN pip3 install --upgrade pip
 RUN pip3 install wheel
 RUN pip3 install --ignore-installed Cython==3.0.0a10 ofxparse==0.21 passlib==1.7.4 Pillow==9.0.1 polib==1.1.0 psutil==5.8.0 psycopg2==2.8.6 pydot==1.4.2 pyopenssl==20.0.1 PyPDF2==1.26.0 pyserial==3.5 python-dateutil==2.8.1 python-ldap==3.4.0 pytz pyusb==1.0.2 reportlab==3.5.59 requests==2.25.1 urllib3==1.26.5 vobject==0.9.6.1 Werkzeug==2.0.2 xlrd==1.2.0 XlsxWriter==1.1.2 xlwt==1.3.* zeep==4.0.0 qrcode==6.1 python-stdnum==1.16 Babel==2.9.1 chardet==4.0.0 cryptography==3.4.8 decorator==4.4.2 docutils==0.16 ebaysdk==2.1.5 freezegun==0.3.15 gevent==21.8.0 greenlet==1.1.2 idna==2.10 Jinja2==2.11.3 libsass==0.20.1 lxml==4.6.5 MarkupSafe==1.1.1 num2words==0.5.9 
 # RUN pip3 install -r /opt/odoo/odoo-server/requirements.txt
-RUN deactivate
+RUN source deactivate
 RUN exit
 
 # Set permissions and Mount /var/lib/odoo to allow restoring filestore and /mnt/extra-addons for users addons
